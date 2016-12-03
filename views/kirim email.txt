@@ -1,0 +1,25 @@
+<?php
+                if(isset($_POST["submit"])){
+                
+                $tanggal = date("d M Y H:m:s");
+                $email_to = "helena_nt@live.com";
+                $nameCont = $_POST["nameCont"];
+                $from = $_POST["emailCont"];
+                $subjCont = $_POST["subjCont"];
+                $msgCont = $_POST["msgCont"];
+
+                $email_message = "On " . $tanggal . ", " . $nameCont ." wrote the following: <br><br>" . "Subject: ". $subjCont."<br>" . "Message: ". $msgCont ."<br>";
+
+                $message_copy = "Here's a copy of your message: <br><br><br>" . $email_message;
+
+                $headers = "From:" . $from;
+                $headers2 = "From:" . $email_to;
+
+                mail($email_to,$subjCont,$msgCont,$headers);
+                mail($from, $subjCont,$msgCont,$headers2); //message copy to sender
+
+                echo "<br><br> Message Sent. Thank you " . $nameCont .", we will reply within 48 hours <br>";
+
+                }
+
+                ?>
