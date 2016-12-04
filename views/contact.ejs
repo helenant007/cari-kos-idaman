@@ -10,6 +10,7 @@
 				<li class="subitem2"><a href="/housings">Villas</a></li>
 				<li class="subitem3"><a href="/housings">Housings</a></li>
 				<li class="subitem4"><a href="/housings">Apartment </a></li>
+				<%- include _loggedin_menu%>
 			</ul>
 		</li>
 		</ul>
@@ -47,7 +48,7 @@
             <div class="col-md-6 contact-right">
 
 
-                <form action="/emailsent" method="post"> ini gk perluy dong? eh perlu dong , tadi mksd lu async apa? soalny kayaknya ini 
+                <form action="/emailsent" method="post">
                     <input type="text" name="name" placeholder="Name" required="">
                     <input type="text" name="email" placeholder="Email" required="">
                     <input type="text" name="subj" placeholder="Subject" required="">

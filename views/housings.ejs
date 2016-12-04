@@ -10,6 +10,7 @@
 				<li class="subitem2"><a href="/housings">Villas</a></li>
 				<li class="subitem3"><a href="/housings">Housings</a></li>
 				<li class="subitem4"><a href="/housings">Apartment </a></li>
+				<%- include _loggedin_menu%>
 			</ul>
 		</li>
 		</ul>
@@ -147,116 +148,40 @@
 		<div class="box-sin">
 			<div class="col-md-9 single-box">
 
-			<% for(i = 0; i < posts.length; i++) { var post = posts[i]; %>
+<%
+var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
+ var randomPicPost;
+function choosePic(){
+ var random = Math.floor(Math.random() * pics.length);
+ randomPicPost = pics[random];
+}
+
+%>
+			<% for(i = 0; i < posts.length; i++) { var post = posts[i]; choosePic; %>
 				<div class="box-col">
 				     <div class=" col-sm-7 left-side ">
-						<a href="single.html"> <img class="img-responsive" src="images/sb.jpg" alt=""></a>
+						<a href="/postdetail"> <img class="img-responsive" src="<%=pics[i]%>" alt=""></a>
 					</div>				
 					<div class="  col-sm-5 middle-side">
 					
 					     <h4><%= post.nama%></h4>
 
-					     <p><span class="bath">Bed </span>: <span class="two"><%=post.jumlahKamar%> BHK</span></p>
-						 
-					     <p><span class="bath2">Built-up Area</span>: <span class="two"><%=post.jumlahKamar%> Sq.Yrds</span></p>
-						 
-						 <p><span class="bath5">Price </span>:<span class="two"> <%=post.harga%></span></p>				 
+					     <p><span class="bath">Bed </span>
+						 	<br> <%=post.jumlahKamar%><br></p>
+					     <p><span class="bath1">Address</span>
+						 	<br><%=post.alamat%> <br></p>					 
+						 <p><span class="bath2">Renter Gender</span>
+						 	<br><%=post.genderPenghuni%><br></p>					 
+						 <p><span class="bath3">Price</span>
+						 	<br><%=post.harga%><br></p>
+						 <p><span class="bath4">Pet</span>
+						 	<br><%=post.hewanPeliharaan%><br></p>	
 					 </div>
 				 <div class="clearfix"> </div>
 				</div>
 			<% } %>
-
-
-				<div class="box-col">
-				     <div class=" col-sm-7 left-side ">
-						<a href="single.html"> <img class="img-responsive" src="images/sb.jpg" alt=""></a>
-					</div>				
-					<div class="  col-sm-5 middle-side">
-					     <h4>Possession: Immediate</h4>
-					     <p><span class="bath">Bed </span>: <span class="two">2 BHK</span></p>
-					     <p>  <span class="bath1">Baths </span>: <span class="two">2</span></p>
-					     <p><span class="bath2">Built-up Area</span>: <span class="two">100 Sq.Yrds</span></p>
-					     <p><span class="bath3">Plot Area </span>:<span class="two"> 150 Sq.Yrds</span></p>
-						 <p><span class="bath4">Age of property</span> : <span class="two">4 - 10 Years</span></p>
-						 <p><span class="bath5">Price </span>:<span class="two"> 30-40 Lacs</span></p>				 
-					 </div>
+				  
 				 <div class="clearfix"> </div>
-				</div>
-				<div class="box-col">
-				     <div class=" col-sm-7 left-side ">
-						 <a href="single.html"><img class="img-responsive" src="images/sb1.jpg" alt=""></a>
-					</div>				
-					<div class="  col-sm-5 middle-side">
-					     <h4>Possession: Immediate</h4>
-					     <p><span class="bath">Bed </span>: <span class="two">2 BHK</span></p>
-					     <p>  <span class="bath1">Baths </span>: <span class="two">2</span></p>
-					     <p><span class="bath2">Built-up Area</span>: <span class="two">100 Sq.Yrds</span></p>
-					     <p><span class="bath3">Plot Area </span>:<span class="two"> 150 Sq.Yrds</span></p>
-						 <p><span class="bath4">Age of property</span> : <span class="two">4 - 10 Years</span></p>
-						 <p><span class="bath5">Price </span>:<span class="two"> 30-40 Lacs</span></p>				 
-					 </div>
-				 <div class="clearfix"> </div>
-				</div>
-				<div class="box-col">
-				     <div class=" col-sm-7 left-side ">
-						<a href="single.html"> <img class="img-responsive" src="images/sb2.jpg" alt=""></a>
-					</div>				
-					<div class="  col-sm-5 middle-side">
-					     <h4>Possession: Immediate</h4>
-					     <p><span class="bath">Bed </span>: <span class="two">2 BHK</span></p>
-					     <p>  <span class="bath1">Baths </span>: <span class="two">2</span></p>
-					     <p><span class="bath2">Built-up Area</span>: <span class="two">100 Sq.Yrds</span></p>
-					     <p><span class="bath3">Plot Area </span>:<span class="two"> 150 Sq.Yrds</span></p>
-						 <p><span class="bath4">Age of property</span> : <span class="two">4 - 10 Years</span></p>
-						  <p><span class="bath5">Price </span>:<span class="two"> 30-40 Lacs</span></p>				 			 
-					 </div>
-				 <div class="clearfix"> </div>
-				</div>
-				<div class="box-col">
-				     <div class=" col-sm-7 left-side ">
-						<a href="single.html"> <img class="img-responsive" src="images/sb3.jpg" alt=""></a>
-					</div>				
-					<div class="  col-sm-5 middle-side">
-					     <h4>Possession: Immediate</h4>
-					     <p><span class="bath">Bed </span>: <span class="two">2 BHK</span></p>
-					     <p>  <span class="bath1">Baths </span>: <span class="two">2</span></p>
-					     <p><span class="bath2">Built-up Area</span>: <span class="two">100 Sq.Yrds</span></p>
-					     <p><span class="bath3">Plot Area </span>:<span class="two"> 150 Sq.Yrds</span></p>
-						 <p><span class="bath4">Age of property</span> : <span class="two">4 - 10 Years</span></p>
-						 <p><span class="bath5">Price </span>:<span class="two"> 30-40 Lacs</span></p>				 			 
-					 </div>
-				 <div class="clearfix"> </div>
-				</div>
-				<div class="box-col">
-				     <div class=" col-sm-7 left-side ">
-						<a href="single.html"> <img class="img-responsive" src="images/sb4.jpg" alt=""></a>
-					</div>				
-					<div class="  col-sm-5 middle-side">
-					     <h4>Possession: Immediate</h4>
-					     <p><span class="bath">Bed </span>: <span class="two">2 BHK</span></p>
-					     <p>  <span class="bath1">Baths </span>: <span class="two">2</span></p>
-					     <p><span class="bath2">Built-up Area</span>: <span class="two">100 Sq.Yrds</span></p>
-					     <p><span class="bath3">Plot Area </span>:<span class="two"> 150 Sq.Yrds</span></p>
-						 <p><span class="bath4">Age of property</span> : <span class="two">4 - 10 Years</span></p>
-						  <p><span class="bath5">Price </span>:<span class="two"> 30-40 Lacs</span></p>				 				 
-					 </div>
-				 <div class="clearfix"> </div>
-				</div>
-				<div class="box-col">
-				     <div class=" col-sm-7 left-side ">
-						 <a href="single.html"><img class="img-responsive" src="images/sb5.jpg" alt=""></a>
-					</div>				
-					<div class="  col-sm-5 middle-side">
-					     <h4>Possession: Immediate</h4>
-					     <p><span class="bath">Bed </span>: <span class="two">2 BHK</span></p>
-					     <p>  <span class="bath1">Baths </span>: <span class="two">2</span></p>
-					     <p><span class="bath2">Built-up Area</span>: <span class="two">100 Sq.Yrds</span></p>
-					     <p><span class="bath3">Plot Area </span>:<span class="two"> 150 Sq.Yrds</span></p>
-						 <p><span class="bath4">Age of property</span> : <span class="two">4 - 10 Years</span></p>
-						 <p><span class="bath5">Price </span>:<span class="two"> 30-40 Lacs</span></p>				 			 
-					 </div>
-				 <div class="clearfix"> </div>
-				</div>
 			</div>
 		</div>
 		<div class="col-md-3 map-single-bottom">
@@ -267,51 +192,51 @@
 		     	<h4>Featured Communities</h4>
 				<div class="single-box-img">
 					<div class="box-img">
-						<a href="single.html"><img class="img-responsive" src="images/sl.jpg" alt=""></a>
+						<a href="postdetail"><img class="img-responsive" src="images/sl.jpg" alt=""></a>
 					</div>
 					<div class="box-text">
-						<p><a href="single.html">Lorem ipsum dolor sit amet</a></p>
-						<a href="single.html" class="in-box">More Info</a>
+						<p><a href="/postdetail">Lorem ipsum dolor sit amet</a></p>
+						<a href="/postdetail" class="in-box">More Info</a>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="single-box-img">
 					<div class="box-img">
-						<a href="single.html"><img class="img-responsive" src="images/sl1.jpg" alt=""></a>
+						<a href="/postdetail"><img class="img-responsive" src="images/sl1.jpg" alt=""></a>
 					</div>
 					<div class="box-text">
-						<p><a href="single.html">Lorem ipsum dolor sit amet</a></p>
-						<a href="single.html" class="in-box">More Info</a>
+						<p><a href="/postdetail">Lorem ipsum dolor sit amet</a></p>
+						<a href="/postdetail" class="in-box">More Info</a>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="single-box-img">
 					<div class="box-img">
-						<a href="single.html"><img class="img-responsive" src="images/sl2.jpg" alt=""></a>
+						<a href="/postdetail"><img class="img-responsive" src="images/sl2.jpg" alt=""></a>
 					</div>
 					<div class="box-text">
-						<p><a href="single.html">Lorem ipsum dolor sit amet</a></p>
-						<a href="single.html" class="in-box">More Info</a>
+						<p><a href="/postdetail">Lorem ipsum dolor sit amet</a></p>
+						<a href="/postdetail" class="in-box">More Info</a>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="single-box-img">
 					<div class="box-img">
-						<a href="single.html"><img class="img-responsive" src="images/sl3.jpg" alt=""></a>
+						<a href="/postdetail"><img class="img-responsive" src="images/sl3.jpg" alt=""></a>
 					</div>
 					<div class="box-text">
-						<p><a href="single.html">Lorem ipsum dolor sit amet</a></p>
-						<a href="single.html" class="in-box">More Info</a>
+						<p><a href="/postdetail">Lorem ipsum dolor sit amet</a></p>
+						<a href="/postdetail" class="in-box">More Info</a>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="single-box-img">
 					<div class="box-img">
-						<a href="single.html"><img class="img-responsive" src="images/sl4.jpg" alt=""></a>
+						<a href="/postdetail"><img class="img-responsive" src="images/sl4.jpg" alt=""></a>
 					</div>
 					<div class="box-text">
-						<p><a href="single.html">Lorem ipsum dolor sit amet</a></p>
-						<a href="single.html" class="in-box">More Info</a>
+						<p><a href="/postdetail">Lorem ipsum dolor sit amet</a></p>
+						<a href="/postdetail" class="in-box">More Info</a>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
