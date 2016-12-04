@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
+/*
 var auth = require("./core/authentication");
 app.use(function(req,res,next){
   auth.isLoggedIn(req.session, function(err,isLoggedIn, model){
@@ -27,6 +28,7 @@ app.use(function(req,res,next){
     }
   })
 })
+*/
 
 app.use("/", routes.home); 
 app.use("/", routes.shared);
