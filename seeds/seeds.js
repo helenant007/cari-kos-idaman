@@ -2,17 +2,18 @@ var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
 var async = require("async");
+var Post = require("../schema/post");
 
-var AccountFactory = require("./schema/account-factory");
+var AccountFactory = require("../schema/account-factory");
 
 
-mongoose.connect("mongodb://localhost/dbcki");
+mongoose.connect("mongodb://admin:admin@ds119578.mlab.com:19578/dbcki");
 
 console.log("Seed Database");
 
 
 function begin(){
-    makeAdmin();
+    makeDarmawan();
 }
 
 function makeAdmin(){
@@ -36,7 +37,7 @@ function makeDarmawan(){
 function makeDarPosts(dar){
 
     var post1 = new Post({
-        tanggal: date,
+        tanggal: Date.now(),
         nama: "Kost Grahayu Denpasar",
         alamat: "Jl. Pemuda IV No. 25 Renon Denpasar",
         genderPenghuni: "Campur",
@@ -54,3 +55,5 @@ function makeDarPosts(dar){
         console.log(post1)
     })
 }
+
+begin();

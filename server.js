@@ -15,12 +15,26 @@ app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
+var auth = require("./core/authentication");
+app.use(function(req,res,next){
+  auth.isLoggedIn(req.session, function(err,isLoggedIn, model){
+    if(isLoggedIn){
+      next();
+    } else {
+      auth.login(req.session, "darwan", "asd123", function(err,account){
+        next();
+      });
+    }
+  })
+})
 
 app.use("/", routes.home); 
+app.use("/", routes.shared);
+app.use("/seller", routes.seller);
 app.use("/admin", routes.admin);
 app.use("/buyer", routes.buyer);
 
 
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
     console.log("App started on port 3000");
 });

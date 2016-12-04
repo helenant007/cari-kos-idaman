@@ -9,7 +9,7 @@ router.use(isAuthorized( ["buyer", "admin"] ));
 
 
 router.get("/", index);
-router.get("/profile", profile);
+
 
 module.exports = router;
 
