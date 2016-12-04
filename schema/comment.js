@@ -2,8 +2,8 @@ var mongoose = require("mongoose");
 
 var CommentSchema = mongoose.Schema({
     
-    _account_id : mongoose.SchemaTypes.ObjectId,
-    _post_id : mongoose.SchemaTypes.ObjectId,
+    _account : mongoose.SchemaTypes.ObjectId,
+    _post : mongoose.SchemaTypes.ObjectId,
 
     comment: String,
 

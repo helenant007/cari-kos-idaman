@@ -7,48 +7,39 @@ module.exports.makeBuyer = makeBuyer;
 module.exports.makeSeller = makeSeller;
 
 
-function makeAdmin(username, password, callback){
-    encrypt.hash(password, function(err,hash){
 
-        var account = new Account({
-            username: username,
-            passwordhash: hash,
-            role: "admin",
-        });
-        callback(null, account);
+function makeAdmin(fullname, username, password){
 
+    return new Account({
+        fullname: fullname,
+        username: username,
+        passwordhash: encrypt.hash(password),
+        role: "admin",
+    });
+
+}
+
+function makeBuyer(fullname, username, password, email, phone){
+    return new Account({
+        fullname: fullname,
+        username: username,
+        passwordhash: encrypt.hash(password),
+        email: email,
+        phone: phone,
+        role: "buyer",
+        freetrial: true,
+        freetrial_exp: (Date.now() + 15768000000),
     });
 }
 
-function makeBuyer(username, password, email, callback){
-    encrypt.hash(password, function(err,hash){
-
-        var now = Date.now();
-        var duration = 15768000000;  
-
-        var account = new Account({
-            username: username,
-            passwordhash: hash,
-            email: email,
-            role: "buyer",
-            freetrial: true,
-            freetrial_exp: (now + duration),
-        });
-
-        callback(null, account);
-
-    });
-}
-
-function makeSeller(username, password, email, callback){
-    encrypt.hash(password, function(err,hash){
-        var account = new Account({
-            username: username,
-            passwordhash: hash,
-            email: email,
-            role: "seller",
-            premium: false,
-        });
-        callback(null, account);
+function makeSeller(fullname, username, password, email, phone){
+    return new Account({
+        fullname: fullname,
+        username: username,
+        passwordhash: encrypt.hash(password),
+        email: email,
+        phone: phone,
+        role: "seller",
+        premium: false,
     });
 }
