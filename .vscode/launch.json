@@ -9,7 +9,10 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceRoot}\\server.js",
-            "cwd": "${workspaceRoot}"
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "PORT" : "3000"
+            }
         },
         {
             "type": "node",

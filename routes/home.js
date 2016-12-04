@@ -68,7 +68,6 @@ function emailsentPOST(req,res){
         subject : 'Cari Kos Idaman - Contact Form',
         html    : "Thank you for contacting us. We've received your email. Here's a copy of your mail: <br><br><br>" + html
     };
-    
     transport.sendMail(mailOptionsAdminDar, function(err,info){
         if(err) throw err;
         res.json(info);
@@ -96,26 +95,31 @@ function villas(req,res){
 }
 var Post = require("../schema/post");
 function housings(req,res){
-    var posts = [];
-    posts.push(new Post({
-        tanggal: Date.now(),
-        nama: "Kost Grahayu Denpasar",
-        alamat: "Jl. Pemuda IV No. 25 Renon Denpasar",
-        genderPenghuni: "Campur",
-        jumlahKamar: 15,
-        luas: 16,
-        jamBertamu: "Dibatasi",
-        hewanPeliharaan: "Tidak",
-        harga: 5000000,
-        _owner: null,
-        fasilitasKamar: ["AC", "Lemari","Kipas Angin", "Matras", "Meja Belajar"],
-        fasilitasSekitar : ["ATM", "Tempat Ibadah", "Sekolah", "Lapangan", "Gym", "Mall", "Pom Bensin" ,"Kolam Renang", "Warteg" , "Satpam"]
-    }))
-    
-    res.render("_master",{
-        page: "Housings",
-        posts : posts
+
+    Post.find({}, function(err,docs){
+
+        docs.push(new Post({
+            tanggal: Date.now(),
+            nama: "Kost Grahayu Denpasar",
+            alamat: "Jl. Pemuda IV No. 25 Renon Denpasar",
+            genderPenghuni: "Campur",
+            jumlahKamar: 15,
+            luas: 16,
+            jamBertamu: "Dibatasi",
+            hewanPeliharaan: "Tidak",
+            harga: 5000000,
+            _owner: null,
+            fasilitasKamar: ["AC", "Lemari","Kipas Angin", "Matras", "Meja Belajar"],
+            fasilitasSekitar : ["ATM", "Tempat Ibadah", "Sekolah", "Lapangan", "Gym", "Mall", "Pom Bensin" ,"Kolam Renang", "Warteg" , "Satpam"]
+        }))
+
+        res.render("_master",{
+            page: "Housings",
+            posts : docs
+        });
     });
+
+   
 }
 
 function  apartments(req, res){
