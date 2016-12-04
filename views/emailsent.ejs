@@ -1,0 +1,22 @@
+<!--
+kirim email:
+variables:
+
+                $tanggal = date("d M Y H:m:s");
+                $email_to = "helena_nt@live.com";
+                $name = $_POST["name"];
+                $from = $_POST["email"];
+                $subj = $_POST["subj"];
+                $msg = $_POST["msg"];
+
+                $email_message = "On " . $tanggal . ", " . $name ." wrote the following: <br><br>" . "Subject: ". $subj."<br>" . "Message: ". $msg ."<br>";
+
+                $message_copy = "Here's a copy of your message: <br><br><br>" . $email_message;
+
+kirim email_message nya ke admin (helena_nt@live.com) dan message_copy nya ke pengirim, trus pagenya tertulis
+
+                echo "<br><br> Message Sent. Thank you " . $name .", we will reply within 48 hours <br>";
+
+http://javascript.tutorialhorizon.com/2015/07/02/send-email-node-js-express/
+
+-->

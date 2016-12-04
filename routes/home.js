@@ -3,6 +3,12 @@ var router = express.Router();
 var authentication = require("../core/authentication");
 
 
+router.use(function(req,res,next){
+    res.locals.username = req.session.username;
+    next();
+})
+
+
 router.get("/", index);
 router.get("/freetrial", freetrial);
 router.get("/villas", villas); 
@@ -23,8 +29,8 @@ module.exports = router;
 
 function index(req,res){
 
-    res.render("index", {
-        page: "Home",
+    res.render("_master", {
+        page: "Home"
     });
 
     //res.render("index");
@@ -41,8 +47,8 @@ function villas(req,res){
 }
 
 function housings(req,res){
-    res.render("housings",{
-        page: 'Y'
+    res.render("_master",{
+        page: "Housings"
     });
 }
 
@@ -51,36 +57,32 @@ function  apartments(req, res){
 }
 
 function about(req, res){
-    res.render("about");
+    res.render("_master",{
+        page: "About"
+    });
 }
 
 function contact(req, res){
     
-    var namepage = req.page;
-    res.render("contact", {
-        page: namepage,
+    res.render("_master", {
+        page: "Contact"
     });
-   // res.render("contact");
 
 }
 
 function login(req, res){
    
 
-    res.render("login", {
-        page: "Login",
+    res.render("_master", {
+        page: "Login"
     });
-    //res.render("login");
+    
 }
 
 function register(req, res){
-
-    var namepage = req.page;
-    res.render("register",{
-        page: "Register"
-    })
-
-    //res.render("register");
+    res.render("_master",{
+        page: "Register",
+    });
 } 
 
 function loginPOST(req,res){

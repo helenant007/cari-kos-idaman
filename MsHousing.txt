@@ -1,0 +1,140 @@
+MsHousing
+1. Nama: Kost Grahayu Denpasar
+   -Alamat: Jl. Pemuda IV No. 25 Renon Denpasar
+   -genderPenghuni: Campur
+   -jumlahKamar: 15
+   -Luas(m2): 16
+   -jamBertamu: Dibatasi
+   -Peliharaan: Tidak
+   -Harga: 5.000.000
+   -namaOwner : Made Kayun
+   -noContact: 08123843121
+   -Deskripsi: 
+Ruang Tamu, TV, Parkir Motor, Dapur, Kulkas, Ruang Keluarga, Keamanan 24 Jam, Ruang Makan, Parkir Mobil, Telepon
+Fasilitas Kamar: AC, Lemari, Kipas Angin, Matras, Meja Belajar, Dapur Pribadi, Internet, Kamar     Mandi Dalam, Kulkas, Water Heater, Laundry, Tempat Jemuran
+
+Fasilitas Sekitar: ATM, Tempat Ibadah, Sekolah, Lapangan, Gym, Mall, Pom Bensin, Kolam Renang, Warteg, Satpam, Rumah Sakit
+
+2. Nama: Kost Kemanggisan D'Balcony
+   -Alamat: Jl. U No.35 RT 009/015 Palmerah (deket Kampus Binus Di Jalan KH Syahdan)
+   -genderPenghuni: Campur
+   -jumlahKamar: 98
+   -Luas(m2): 15
+   -jamBertamu: Dibatasi
+   -Peliharaan: Tidak
+   -Harga: 1.000.000
+   -namaOwner : Siti
+   -noContact: 087789006999
+   -Deskripsi:
+
+Kamar Mandi Dalam
+full furnish
+Tempat tidur kualitas hotel
+balkon (sirkulasi udara bagus)
+TV cable
+AC
+
+Fasilitas Bersama :
+ruang tamu
+shuttle car
+parkir
+pembantu/cleaning service
+listrik
+laundry
+access card
+keamanan 24 jam
+dapur bersama
+internet
+
+Kampus Terdekat :
+BINUS
+  
+3. Nama: Kost Penerangan Jelambar
+   -Alamat: Jl. Penerangan III No. 5A - Jelambar , Jakarta Barat.
+   -genderPenghuni: Wanita
+   -jumlahKamar: 9
+   -Luas(m2): 9
+   -jamBertamu: Bebas
+   -Peliharaan: Tidak
+   -Harga: 1.800.000
+   -namaOwner : Jeffry
+   -noContact: 085777730088
+   -Deskripsi: 
+
+kamar mandi dalam; Shower
+air panas 
+AC 
+TV 
+Meja belajar/kerja 
+lemari
+Double Bed atas &amp; bawah
+CCTV pengamanan
+Carpot Parkir Motor
+Kulkas 2 pintu
+Dispenser Cold + Hot ( Free Water )
+Kompor Gas ( Free 2 tabung Gas)
+ Cuci dan Sterika
+Free Internet Wifi
+
+Fasilitas : 
+Dekat Mall Citraland, Rs.Royal Taruma, Rs.Sumber Waras, Rs. Dharmais, Rs.Harapan kita, Rs. Hermaina Daan Mogot, Kampus Untar 1 &amp; 2, Kampus Trisakti, 15 Menit ke Seasion City, Setengah jam Emporium mall- pluit village - BayWalk Mall Pluit - Junction - Muara Karang Restauran.
+
+4. Nama: Kost Utama 5
+   -Alamat: Jl. Utama V No. 5, RT03 RW01, Cengkareng
+   -genderPenghuni: Campur
+   -jumlahKamar: 11
+   -Luas(m2): 16
+   -jamBertamu: Bebas
+   -Peliharaan: Boleh
+   -Harga: 1.200.000
+   -namaOwner : Lena
+   -noContact: 087878381823
+   -Deskripsi: 
+Fasilitas :
+- Kamar Mandi Dalam
+- AC
+- Ranjang + Kasur + Lemari Pakaian + Meja + Kursi
+- Fully Furnished
+
+Fasilitas Kamar Mandi Dalam Lengkap :
+- Water Heater / Air Panas
+- Shower
+- Closed Duduk
+- Eco Washer
+- Jet Washer
+- Wastafel
+
+Fasilitas lainnya :
+- Pembantu Rumah Tangga
+- CCTV (Keamanan 24 Jam)
+- Free WIFI
+- TV Kabel (CINEMAX, HBO, FOX Movie dll.)
+- Ruang Tamu
+- Meja Makan
+- Dapur Bersih + Kompor + Kulkas + Dispenser Air
+- Mesin Cuci + Setrika + Jemuran
+- Parkir Motor dan Mobil
+- Bebas Banjir
+- Dinding Tembok Batu, bukan Gypsum atau Triplek
+
+5. Nama: KOST BELAKANG CITRALAND (BCL)
+   -Alamat: Taman Daan Mogot Raya III
+   -genderPenghuni: Campur
+   -jumlahKamar: 15
+   -Luas(m2): 10
+   -jamBertamu: Dibatasi
+   -Peliharaan: Tidak
+   -Harga: 1.400.000
+   -namaOwner : Emil Firmansyah
+   -noContact: 0818917688
+   -Deskripsi: 
+Kos Belakang Citraland ( BCL), dekat Untar, trisakti, ukrida
+
+Fasilitas: 
+#sprei and pillow included
+#TV Cable
+#Ruang tamu yang luas, 
+#Pantry dengan perlengkapan masak, 
+#parkir motor dan parkir mobil, 
+
+SPECIAL Roof Top Terrace (bisa untuk bbq)

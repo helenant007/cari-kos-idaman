@@ -32,6 +32,7 @@ function login(session, username, password, callback){
             if(valid == true){
                 session.login = true;
                 session.user = acc;
+                session.username = acc.username;
                 callback(null, acc, acc.role); 
             } else {
                 return callback("Password doesn't match");
@@ -48,5 +49,6 @@ function login(session, username, password, callback){
 function logout(session, callback){
     session.login = false;
     session.user = null;
+    session.username = null;
     callback(null);
 }
