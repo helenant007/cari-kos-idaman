@@ -45,7 +45,7 @@ function login(session, username, password, callback){
  */
 function logout(session, callback){
     session.login = false;
-    session.user = null;
-    session.username = null;
+    session.user = undefined;
+    session.username = undefined;
     callback(null);
 }

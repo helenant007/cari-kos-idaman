@@ -20,6 +20,7 @@ router.get("/login", login);
 router.get("/register", register);
 router.get("/about", about);
 router.get("/contact", contact);
+router.get("/postdetail",postdetail);
 
 
 router.post("/login", loginPOST);
@@ -68,9 +69,15 @@ function emailsentPOST(req,res){
         subject : 'Cari Kos Idaman - Contact Form',
         html    : "Thank you for contacting us. We've received your email. Here's a copy of your mail: <br><br><br>" + html
     };
-    transport.sendMail(mailOptionsAdminDar, function(err,info){
+
+    transport.sendMail(mailOptionsAdmin, function(err,info){ // ni buat ngirim ke email elu
         if(err) throw err;
-        res.json(info);
+        
+        transport.sendMail(mailOptionsSender, function(err,i){ // bakal ngirim ke (sesuai dengan inputan di form nya) :te"st) test local dlu aja ba
+            if (err) throw err;
+            res.redirect("/");
+        });
+
     });
     
 }
@@ -87,6 +94,12 @@ function index(req,res){
 function freetrial(req,res){
     res.render("ok", {
         page: "Free Trial"
+    })
+}
+
+function postdetail(req,res){
+    res.render("_master",{
+        page: "postdetail",
     })
 }
 
@@ -119,9 +132,12 @@ function housings(req,res){
             fasilitasSekitar : ["ATM", "Tempat Ibadah", "Sekolah", "Lapangan", "Gym", "Mall", "Pom Bensin" ,"Kolam Renang", "Warteg" , "Satpam"]
         }))
 
+var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
+
         res.render("_master",{
-            page: "housings",
-            posts : docs
+            page: "Housings",
+            posts : docs,
+            pics : pics
         });
     });
 
@@ -150,7 +166,7 @@ function login(req, res){
    
 
     res.render("_master", {
-        page: "login"
+        page: "Login"
     });
     
 }
