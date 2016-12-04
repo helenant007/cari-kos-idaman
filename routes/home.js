@@ -120,7 +120,7 @@ function housings(req,res){
         }))
 
         res.render("_master",{
-            page: "Housings",
+            page: "housings",
             posts : docs
         });
     });
@@ -150,7 +150,7 @@ function login(req, res){
    
 
     res.render("_master", {
-        page: "Login"
+        page: "login"
     });
     
 }
