@@ -135,7 +135,7 @@ function housings(req,res){
 var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
 
         res.render("_master",{
-            page: "Housings",
+            page: "housings",
             posts : docs,
             pics : pics
         });
@@ -150,14 +150,14 @@ function  apartments(req, res){
 
 function about(req, res){
     res.render("_master",{
-        page: "About"
+        page: "about"
     });
 }
 
 function contact(req, res){
     
     res.render("_master", {
-        page: "Contact"
+        page: "contact"
     });
 
 }
@@ -166,14 +166,14 @@ function login(req, res){
    
 
     res.render("_master", {
-        page: "Login"
+        page: "login"
     });
     
 }
 
 function register(req, res){
     res.render("_master",{
-        page: "Register",
+        page: "register",
     });
 } 
 
