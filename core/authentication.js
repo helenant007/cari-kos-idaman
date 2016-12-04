@@ -25,20 +25,17 @@ function login(session, username, password, callback){
         if(err) throw err;
         if(acc==null) return callback("User not found");
 
-        encrypt.verifyHash(password, acc.passwordhash, function(err,valid){
 
-            if (err) throw err;
+        if (encrypt.verifyHash(password, acc.passwordhash)){
 
-            if(valid == true){
                 session.login = true;
                 session.user = acc;
                 session.username = acc.username;
                 callback(null, acc, acc.role); 
-            } else {
+            
+        }   else {
                 return callback("Password doesn't match");
-            }
-
-        });
+        }
 
     });
 }

@@ -146,6 +146,27 @@
 		<h3>Residential Flats, Apartments</h3>
 		<div class="box-sin">
 			<div class="col-md-9 single-box">
+
+			<% for(i = 0; i < posts.length; i++) { var post = posts[i]; %>
+				<div class="box-col">
+				     <div class=" col-sm-7 left-side ">
+						<a href="single.html"> <img class="img-responsive" src="images/sb.jpg" alt=""></a>
+					</div>				
+					<div class="  col-sm-5 middle-side">
+					
+					     <h4><%= post.nama%></h4>
+
+					     <p><span class="bath">Bed </span>: <span class="two"><%=post.jumlahKamar%> BHK</span></p>
+						 
+					     <p><span class="bath2">Built-up Area</span>: <span class="two"><%=post.jumlahKamar%> Sq.Yrds</span></p>
+						 
+						 <p><span class="bath5">Price </span>:<span class="two"> <%=post.harga%></span></p>				 
+					 </div>
+				 <div class="clearfix"> </div>
+				</div>
+			<% } %>
+
+
 				<div class="box-col">
 				     <div class=" col-sm-7 left-side ">
 						<a href="single.html"> <img class="img-responsive" src="images/sb.jpg" alt=""></a>
