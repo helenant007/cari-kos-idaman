@@ -96,7 +96,13 @@ function villas(req,res){
 var Post = require("../schema/post");
 function housings(req,res){
 
+
     Post.find({}, function(err,docs){
+
+        if(err){
+            res.send(err);
+            return;
+        }
 
         docs.push(new Post({
             tanggal: Date.now(),
