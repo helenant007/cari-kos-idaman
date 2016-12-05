@@ -33,7 +33,6 @@ var preventMiddleware = function(req,res,next){
     }
 };
 
-router.post("/login", loginPOST);
 router.get("/login", preventMiddleware, login);
 router.get("/register", preventMiddleware, register);
 router.post("/login", preventMiddleware, loginPOST);
