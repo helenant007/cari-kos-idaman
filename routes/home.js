@@ -120,6 +120,7 @@ function villas(req,res){
 var Post = require("../schema/post");
 function housings(req,res){
 
+    
 
     Post.find({}, function(err,docs){
 
@@ -127,21 +128,6 @@ function housings(req,res){
             res.send(err);
             return;
         }
-
-        docs.push(new Post({
-            tanggal: Date.now(),
-            nama: "Kost Grahayu Denpasar",
-            alamat: "Jl. Pemuda IV No. 25 Renon Denpasar",
-            genderPenghuni: "Campur",
-            jumlahKamar: 15,
-            luas: 16,
-            jamBertamu: "Dibatasi",
-            hewanPeliharaan: "Tidak",
-            harga: 5000000,
-            _owner: null,
-            fasilitasKamar: ["AC", "Lemari","Kipas Angin", "Matras", "Meja Belajar"],
-            fasilitasSekitar : ["ATM", "Tempat Ibadah", "Sekolah", "Lapangan", "Gym", "Mall", "Pom Bensin" ,"Kolam Renang", "Warteg" , "Satpam"]
-        }))
 
         var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
         pics = shuffle(pics);
@@ -202,7 +188,7 @@ var accountFactory = require("../schema/account-factory");
 
 function registerPOST(req,res){
     var buyer = accountFactory.makeBuyer(req.body.fullname, req.body.uname, req.body.password, req.body.email, req.body.phone);
-
+    
     buyer.save(function(err, acc){
 
         if(err) throw err;

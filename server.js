@@ -5,6 +5,7 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var routes = require("./routes"); 
 
+
 mongoose.connect("mongodb://admin:admin@ds119578.mlab.com:19578/dbcki");
 app.use(session({
   secret: '@*(69^&$39(&%($%&$#^@3453)))',
