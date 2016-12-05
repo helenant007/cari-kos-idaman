@@ -8,7 +8,7 @@ var nodemailer = require("nodemailer")
 router.use(function(req,res,next){
     res.locals.username = req.session.username;
     next();
-})
+});
 
 
 router.get("/", index);
@@ -16,16 +16,28 @@ router.get("/freetrial", freetrial);
 router.get("/villas", villas); 
 router.get("/housings", housings);
 router.get("/apartments", apartments);
-router.get("/login", login);
-router.get("/register", register);
 router.get("/about", about);
 router.get("/contact", contact);
 router.get("/postdetail",postdetail);
+router.post("/emailsent", emailsentPOST);
 
+/**
+ * If the user isLoggedIn when accessing this route, then redirect user to 
+ * corresponding role.
+ */
+var preventMiddleware = function(req,res,next){
+    if(req.session.login == true){
+        res.redirect("/" + req.session.user.role);
+    } else {
+        next();
+    }
+};
 
 router.post("/login", loginPOST);
-router.post("/register", registerPOST);
-router.post("/emailsent", emailsentPOST);
+router.get("/login", preventMiddleware, login);
+router.get("/register", preventMiddleware, register);
+router.post("/login", preventMiddleware, loginPOST);
+router.post("/register", preventMiddleware, registerPOST);
 
 
 module.exports = router;
@@ -162,12 +174,9 @@ function contact(req, res){
 }
 
 function login(req, res){
-   
-
     res.render("_master", {
         page: "login"
     });
-    
 }
 
 function register(req, res){
