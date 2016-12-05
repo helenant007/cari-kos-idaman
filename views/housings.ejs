@@ -148,16 +148,7 @@
 		<div class="box-sin">
 			<div class="col-md-9 single-box">
 
-<%
-var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
- var randomPicPost;
-function choosePic(){
- var random = Math.floor(Math.random() * pics.length);
- randomPicPost = pics[random];
-}
-
-%>
-			<% for(i = 0; i < posts.length; i++) { var post = posts[i]; choosePic; %>
+			<% for(i = 0; i < posts.length; i++) { var post = posts[i]; %>
 				<div class="box-col">
 				     <div class=" col-sm-7 left-side ">
 						<a href="/postdetail"> <img class="img-responsive" src="<%=pics[i]%>" alt=""></a>

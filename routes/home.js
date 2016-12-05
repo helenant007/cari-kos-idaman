@@ -132,7 +132,8 @@ function housings(req,res){
             fasilitasSekitar : ["ATM", "Tempat Ibadah", "Sekolah", "Lapangan", "Gym", "Mall", "Pom Bensin" ,"Kolam Renang", "Warteg" , "Satpam"]
         }))
 
-var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
+        var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
+        pics = shuffle(pics);
 
         res.render("_master",{
             page: "housings",
@@ -140,8 +141,6 @@ var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/s
             pics : pics
         });
     });
-
-   
 }
 
 function  apartments(req, res){
@@ -208,4 +207,31 @@ function registerPOST(req,res){
         });
 
     });
+}
+
+
+//------------------------------------------------------------
+
+
+/**
+ * The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
+ * http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+ */
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
