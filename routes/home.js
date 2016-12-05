@@ -8,7 +8,7 @@ var nodemailer = require("nodemailer")
 router.use(function(req,res,next){
     res.locals.username = req.session.username;
     next();
-})
+});
 
 
 router.get("/", index);
@@ -16,16 +16,27 @@ router.get("/freetrial", freetrial);
 router.get("/villas", villas); 
 router.get("/housings", housings);
 router.get("/apartments", apartments);
-router.get("/login", login);
-router.get("/register", register);
 router.get("/about", about);
 router.get("/contact", contact);
 router.get("/postdetail",postdetail);
-
-
-router.post("/login", loginPOST);
-router.post("/register", registerPOST);
 router.post("/emailsent", emailsentPOST);
+
+/**
+ * If the user isLoggedIn when accessing this route, then redirect user to 
+ * corresponding role.
+ */
+var preventMiddleware = function(req,res,next){
+    if(req.session.login == true){
+        res.redirect("/" + req.session.user.role);
+    } else {
+        next();
+    }
+};
+
+router.get("/login", preventMiddleware, login);
+router.get("/register", preventMiddleware, register);
+router.post("/login", preventMiddleware, loginPOST);
+router.post("/register", preventMiddleware, registerPOST);
 
 
 module.exports = router;
@@ -109,6 +120,7 @@ function villas(req,res){
 var Post = require("../schema/post");
 function housings(req,res){
 
+    
 
     Post.find({}, function(err,docs){
 
@@ -117,22 +129,8 @@ function housings(req,res){
             return;
         }
 
-        docs.push(new Post({
-            tanggal: Date.now(),
-            nama: "Kost Grahayu Denpasar",
-            alamat: "Jl. Pemuda IV No. 25 Renon Denpasar",
-            genderPenghuni: "Campur",
-            jumlahKamar: 15,
-            luas: 16,
-            jamBertamu: "Dibatasi",
-            hewanPeliharaan: "Tidak",
-            harga: 5000000,
-            _owner: null,
-            fasilitasKamar: ["AC", "Lemari","Kipas Angin", "Matras", "Meja Belajar"],
-            fasilitasSekitar : ["ATM", "Tempat Ibadah", "Sekolah", "Lapangan", "Gym", "Mall", "Pom Bensin" ,"Kolam Renang", "Warteg" , "Satpam"]
-        }))
-
-var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
+        var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
+        pics = shuffle(pics);
 
         res.render("_master",{
             page: "housings",
@@ -140,8 +138,6 @@ var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/s
             pics : pics
         });
     });
-
-   
 }
 
 function  apartments(req, res){
@@ -163,12 +159,9 @@ function contact(req, res){
 }
 
 function login(req, res){
-   
-
     res.render("_master", {
         page: "login"
     });
-    
 }
 
 function register(req, res){
@@ -195,7 +188,7 @@ var accountFactory = require("../schema/account-factory");
 
 function registerPOST(req,res){
     var buyer = accountFactory.makeBuyer(req.body.fullname, req.body.uname, req.body.password, req.body.email, req.body.phone);
-
+    
     buyer.save(function(err, acc){
 
         if(err) throw err;
@@ -208,4 +201,31 @@ function registerPOST(req,res){
         });
 
     });
+}
+
+
+//------------------------------------------------------------
+
+
+/**
+ * The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
+ * http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+ */
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }

@@ -140,7 +140,26 @@
 	</div>
 </div>
 
-<!---->
+<!-- implement accounting.js for currency formating -->
+
+<script src="/js/accounting.min.js"></script>
+<script>
+accounting.settings = {
+	currency: {
+		symbol : "Rp ",   // default currency symbol is '$'
+		format: "%s%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+		decimal : ".",  // decimal point separator
+		thousand: ".",  // thousands separator
+		precision : 2   // decimal places
+	},
+	number: {
+		precision : 0,  // default precision on numbers is 0
+		thousand: ".",
+		decimal : "."
+	}
+}
+</script>
+
 <div class="container">
 	
 	<div class="buy-single">
@@ -148,16 +167,7 @@
 		<div class="box-sin">
 			<div class="col-md-9 single-box">
 
-<%
-var pics = new Array("images/sb.jpg","images/sb1.jpg","images/sb2.jpg","images/sb3.jpg","images/sb4.jpg","images/sb5.jpg","images/sb6.jpg");
- var randomPicPost;
-function choosePic(){
- var random = Math.floor(Math.random() * pics.length);
- randomPicPost = pics[random];
-}
-
-%>
-			<% for(i = 0; i < posts.length; i++) { var post = posts[i]; choosePic; %>
+			<% for(i = 0; i < posts.length; i++) { var post = posts[i]; %>
 				<div class="box-col">
 				     <div class=" col-sm-7 left-side ">
 						<a href="/postdetail"> <img class="img-responsive" src="<%=pics[i]%>" alt=""></a>
@@ -173,7 +183,7 @@ function choosePic(){
 						 <p><span class="bath2">Renter Gender</span>
 						 	<br><%=post.genderPenghuni%><br></p>					 
 						 <p><span class="bath3">Price</span>
-						 	<br><%=post.harga%><br></p>
+						 	<br><script>document.write(accounting.formatMoney(<%=post.harga%>))</script><br></p>
 						 <p><span class="bath4">Pet</span>
 						 	<br><%=post.hewanPeliharaan%><br></p>	
 					 </div>
