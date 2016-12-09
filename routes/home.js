@@ -7,6 +7,7 @@ var nodemailer = require("nodemailer")
 
 router.use(function(req,res,next){
     res.locals.username = req.session.username;
+    res.locals.role = req.session.role;
     next();
 });
 
@@ -96,7 +97,8 @@ function emailsentPOST(req,res){
 function index(req,res){
 
     res.render("_master", {
-        page: "Home"
+        pageTitle: "Home",
+        pageBody: "Home"
     });
 
     //res.render("index");
@@ -104,13 +106,14 @@ function index(req,res){
 
 function freetrial(req,res){
     res.render("ok", {
-        page: "Free Trial"
+        pageTitle: "Free Trial"
     })
 }
 
 function postdetail(req,res){
     res.render("_master",{
-        page: "postdetail",
+        pageTitle: "Home Detail",
+        pageBody: "postDetail"
     })
 }
 
@@ -133,7 +136,8 @@ function housings(req,res){
         pics = shuffle(pics);
 
         res.render("_master",{
-            page: "housings",
+            pageTitle: "Housings",
+            pageBody: "housings",
             posts : docs,
             pics : pics
         });
@@ -146,27 +150,31 @@ function  apartments(req, res){
 
 function about(req, res){
     res.render("_master",{
-        page: "about"
+        pageTitle: "About",
+        pageBody: "about"
     });
 }
 
 function contact(req, res){
     
     res.render("_master", {
-        page: "contact"
+        pageTitle: "Contact",
+        pageBody: "contact"
     });
 
 }
 
 function login(req, res){
     res.render("_master", {
-        page: "login"
+        pageTitle: "Log In",
+        pageBody: "login"
     });
 }
 
 function register(req, res){
     res.render("_master",{
-        page: "register",
+        pageTitle: "Register",
+        pageBody: "register",
     });
 } 
 

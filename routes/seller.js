@@ -6,6 +6,7 @@ var isLoggedIn = require("../middleware/isLoggedIn");
 router.use(isLoggedIn);
 
 router.get("/", index);
+router.get("/profile", profile)
 
 router.post("/postnewhouse", postnewhouse);
 
@@ -15,11 +16,16 @@ function index(req,res){
 
     var user = req.user;
     
-    res.render("seller/_master",{
-        page: "profile"
+    res.render("_master",{
+        pageTitle: "New House",
+        pageBody: "seller/addNewHouse"
     });
 
 
+}
+
+function profile(req, res){
+    res.redirect("/housings");
 }
 
 var mongoose = require("mongoose");
