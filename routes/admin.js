@@ -14,8 +14,9 @@ function index(req,res){
 
     var user = req.user;
     
-    res.render("admin/_master",{
-        page: "profile",
+    res.render("_master",{
+        pageTitle: "Profile",
+        pageBody: "admin/profile",
     });
 
 

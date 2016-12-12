@@ -5,7 +5,8 @@ var CommentSchema = mongoose.Schema({
     _account : mongoose.SchemaTypes.ObjectId,
     _post : mongoose.SchemaTypes.ObjectId,
 
-    comment: String,
+    subject: String,
+    body: String,
 
 });
 

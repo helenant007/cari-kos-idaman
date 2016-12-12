@@ -127,7 +127,7 @@ accounting.settings = {
 			<% for(i = 0; i < posts.length; i++) { var post = posts[i]; %>
 				<div class="box-col">
 				     <div class=" col-sm-7 left-side ">
-						<a href="/postdetail"> <img class="img-responsive" src="<%=pics[i]%>" alt=""></a>
+						<a href="/postdetail/<%= post.id%>"> <img class="img-responsive" src="<%=pics[i]%>" alt=""></a>
 					</div>				
 					<div class="  col-sm-5 middle-side">
 					

@@ -19,7 +19,7 @@ router.get("/housings", housings);
 router.get("/apartments", apartments);
 router.get("/about", about);
 router.get("/contact", contact);
-router.get("/postdetail",postdetail);
+router.get("/postdetail/:postid",postdetail);
 router.post("/emailsent", emailsentPOST);
 
 /**
@@ -35,9 +35,11 @@ var preventMiddleware = function(req,res,next){
 };
 
 router.get("/login", preventMiddleware, login);
-router.get("/register", preventMiddleware, register);
+router.get("/register", preventMiddleware, register );
 router.post("/login", preventMiddleware, loginPOST);
 router.post("/register", preventMiddleware, registerPOST);
+
+
 
 
 module.exports = router;
@@ -110,11 +112,39 @@ function freetrial(req,res){
     })
 }
 
+var Comment = require("../schema/comment");
+var Account = require("../schema/account");
 function postdetail(req,res){
-    res.render("_master",{
-        pageTitle: "Home Detail",
-        pageBody: "postDetail"
-    })
+    var id = req.params.postid; 
+
+
+    Post.findById(id, function(err, posttt){
+         Account.find(function(err, accounts){
+
+            Comment.find({_post: posttt.id}, function(err, comments){
+
+                for (var i = 0; i < comments.length; i++){ var comment = comments[i];
+                    for (var j =0; j < accounts.length; j++){ var account = accounts[j];
+                        if(account._id.toString() == comment._account){
+                            comment.fullname = account.fullname; //wkkw repot gak sih
+                            break;
+                        }
+                    }
+                }
+
+                res.render("_master",{
+                    pageTitle: "Home Detail",
+                    pageBody: "postDetail",
+                    post: posttt ,
+                    comments : comments
+                });
+            
+            });
+            
+         });
+
+    });
+
 }
 
 function villas(req,res){

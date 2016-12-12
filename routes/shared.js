@@ -8,16 +8,9 @@ var authentication = require("../core/authentication");
 router.use(isLoggedIn);
 router.use(isAuthorized( ["buyer", "admin", "seller"] ));
 
-router.get("/addNewHouse",addNewHouse);
+//router.get("/addNewHouse",addNewHouse);
 router.get("/profile", profile);
 router.get("/logout", logout);
-
-function addNewHouse(req,res){
-        res.render("_master", {
-        pageTitle: "Add New House",
-        pageBody: "addNewHouse"
-    });
-}
 
 function profile(req,res){
     var role = req.user.role;

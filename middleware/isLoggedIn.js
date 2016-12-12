@@ -11,7 +11,7 @@ function middleware(req,res,next){
             res.locals.username = user.username;
             return next();  
         } 
-        else res.send   ("You are not authenticated to access this page!");
+        else res.redirect("/");
 
     });
 

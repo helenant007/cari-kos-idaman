@@ -13,26 +13,14 @@ router.post("/postnewhouse", postnewhouse);
 module.exports = router;
 
 function index(req,res){
-    res.redirect("/housings");
+    res.redirect("/");
 }
 
-function profile(req, res){
-
-    var user = req.user;
-    
-    res.render("_master",{
-        pageTitle: "Profile",
-        pageBody: "seller/profile"
-    });
-}
 
 function addNewHouse(req,res){
-    
-    var user = req.user;
-    
-    res.render("_master",{
-        pageTitle: "New House",
-        pageBody: "/housings"
+        res.render("_master", {
+        pageTitle: "Add New House",
+        pageBody: "addNewHouse" 
     });
 }
 
