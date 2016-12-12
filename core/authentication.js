@@ -31,6 +31,7 @@ function login(session, username, password, callback){
                 session.login = true;
                 session.user = acc;
                 session.username = acc.username;
+                session.role = acc.role;
                 callback(null, acc, acc.role); 
             
         }   else {

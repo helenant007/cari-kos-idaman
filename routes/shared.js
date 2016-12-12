@@ -8,15 +8,23 @@ var authentication = require("../core/authentication");
 router.use(isLoggedIn);
 router.use(isAuthorized( ["buyer", "admin", "seller"] ));
 
-
+router.get("/addNewHouse",addNewHouse);
 router.get("/profile", profile);
 router.get("/logout", logout);
 
+function addNewHouse(req,res){
+        res.render("_master", {
+        pageTitle: "Add New House",
+        pageBody: "addNewHouse"
+    });
+}
+
 function profile(req,res){
     var role = req.user.role;
-
-    res.render(role+"/profile"); //dar klo gini kira2 bisa ga ya?
-    //bsa hausnya cb deh
+    res.render("_master",{
+        pageTitle: "Profile",
+        pageBody: role+"/profile"
+    })
 }
 
 function logout(req,res){

@@ -6,26 +6,34 @@ var isLoggedIn = require("../middleware/isLoggedIn");
 router.use(isLoggedIn);
 
 router.get("/", index);
-router.get("/profile", profile)
+router.get("/addNewHouse",addNewHouse);
 
 router.post("/postnewhouse", postnewhouse);
 
 module.exports = router;
 
 function index(req,res){
+    res.redirect("/housings");
+}
+
+function profile(req, res){
 
     var user = req.user;
     
     res.render("_master",{
-        pageTitle: "New House",
-        pageBody: "seller/addNewHouse"
+        pageTitle: "Profile",
+        pageBody: "seller/profile"
     });
-
-
 }
 
-function profile(req, res){
-    res.redirect("/housings");
+function addNewHouse(req,res){
+    
+    var user = req.user;
+    
+    res.render("_master",{
+        pageTitle: "New House",
+        pageBody: "/housings"
+    });
 }
 
 var mongoose = require("mongoose");
