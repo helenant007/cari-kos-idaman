@@ -1,16 +1,31 @@
+<%
+var isPremium;
+if(profile.premium){
+	isPremium = "Yes";
+}else{
+	isPremium = "No";
+}
 
-<!--
-Profile of seller
+%>
 
-Full name:
-Username:
-E-mail:
-Free Trial : valid / invalid/ used
+<h3>Hello, <%= profile.username %>!</h3>
 
--->
+<br><br>
+
+<div class=" col-sm-5 middle-side">
+					     <p><span class="bath1">Full Name:</span>
+						 	<br><%= profile.fullname %><br></p>					 
+						 <p><span class="bath2">Role:</span>
+						 	<br><%= profile.role %><br></p>					 
+						 <p><span class="bath3">E-mail:</span>
+						 	<br><%= profile.email %><br></p>
+						 <p><span class="bath4">Phone:</span>
+						 	<br><%= profile.phone %><br></p>	
+						 <p><span class="bath4">Premium Account:</span>
+						 	<br><%= isPremium %><br></p>							 
+</div>
+
 
     		
 	</div>
 </div>
-hello all! this is profile
-<%=username%>

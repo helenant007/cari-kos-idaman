@@ -5,7 +5,7 @@ var isAuthorized = require("../middleware/isAuthorized");
 
 
 router.use(isLoggedIn);
-router.use(isAuthorized( ["buyer", "admin"] ));
+//router.use(isAuthorized( ["buyer", "admin"] ));
 
 
 router.get("/", index);
@@ -46,17 +46,3 @@ function index(req,res){
 
 }
 
-function profile(req,res){
-
-    var Comment = require("../schema/comment");
-
-    Comment.find({_account_id: req.user._id}, function(err,docs){
-
-        res.render("buyer/profile", {
-            page: "profile",
-            comments: docs
-        });
-
-    });
-
-}

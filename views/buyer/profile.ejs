@@ -8,7 +8,49 @@ E-mail:
 Free Trial : valid / invalid/ used
 
 -->
+<%
+var isUsed;
+if(profile.freetrial){
+	isUsed = "No";
+}else{
+	isUsed = "Yes";
+}
+
+%>
+
+<h3>Hello, <%= profile.username %>!</h3>
+
+<br><br>
+
+<div class=" col-sm-12 middle-side">
+					     <p><span class="bath1">Full Name:</span>
+						 	<br><%= profile.fullname %><br></p>					 
+						 <p><span class="bath2">Role:</span>
+						 	<br><%= profile.role %><br></p>					 
+						 <p><span class="bath3">E-mail:</span>
+						 	<br><%= profile.email %><br></p>
+						 <p><span class="bath4">Phone:</span>
+						 	<br><%= profile.phone %><br></p>	
+						 <p><span class="bath4">Free Trial:</span>
+						 	<br><%= isUsed %><br></p>
+						 <p><span class="bath4">Free Trial Expired On:</span>
+						 	<br><%= profile.freetrial_exp %><br></p>                             							 
+</div>
+<br>
+
+<h3>Your Comments</h3>
+<div class=" col-sm-12 middle-side">
+  <% for(var i = 0; i< comments.length ; i++){ var comment = comments[i]; %>
+         <p><span class="bath1">Post Title:</span>
+	     <br> <b><h4><%= comment.postTitle %></h4></b><br></p>	
+         <p><span class="bath1">Comment Subject:</span>
+		 <br><%= comment.subject %><br></p>	
+         <p><span class="bath1">Comment Body:</span>
+		 <br><%= comment.body %><br></p>	
+         <br><hr><br>
+        <% } %>
+    </div>
 
 </div>
 </div>
-buyer profile
+

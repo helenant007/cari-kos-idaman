@@ -9,7 +9,7 @@ function makeMiddleware (roles){
             if(roles[i] == req.user.role) 
                 return next();
 
-        res.send("You are not authorized to access this page");
+        //res.send("You are not authorized to access this page");
 
     }    
 }

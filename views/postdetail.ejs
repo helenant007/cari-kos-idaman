@@ -74,16 +74,21 @@ accounting.settings = {
 	</div>
 		<!---->
 		<div class="leave">
-			<h5>Leave a Comment</h5>
+
 	<% if(typeof username === 'undefined'){ %>
+			<h5>Leave a Comment</h5>
 			<form action="/login">
 			You have to log in to post comment <br>
 			   <label class="hvr-sweep-to-right">
 	           <input href="/login" type="submit" value="Login">
 	           </label>
 			</form>
-	<% } else { %>
-			<form method="POST" action="/buyer/postcomment">
+	<% } else if (role == "seller"){ %>
+			
+	
+	<% }else{ %>
+			<h5>Leave a Comment</h5>
+			<form method="POST" action="/<%=role%>/postcomment">
 				<input type="hidden" name="postID" value="<%=post.id%>">
 			  <input type="text" name="subject" placeholder="Subject" required="">
 			   <textarea name="body" placeholder="Comment" required=""></textarea>
