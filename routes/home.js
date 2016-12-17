@@ -119,17 +119,14 @@ function postdetail(req,res){
 
 
     Post.findById(id, function(err, posttt){
-         Account.find(function(err, accounts){
+        Comment.find({_post: posttt.id}, function(err, comments){
+            Account.find(function(err, accounts){
 
-            Comment.find({_post: posttt.id}, function(err, comments){
+                for (var i = 0; i < comments.length; i++){
+                    var comment = comments[i];
+                    var account = accounts.find(acc => acc._id.toString() == comment._account);
 
-                for (var i = 0; i < comments.length; i++){ var comment = comments[i];
-                    for (var j =0; j < accounts.length; j++){ var account = accounts[j];
-                        if(account._id.toString() == comment._account){
-                            comment.fullname = account.fullname; //wkkw repot gak sih
-                            break;
-                        }
-                    }
+                    comment.fullname = account.fullname;
                 }
 
                 res.render("_master",{
