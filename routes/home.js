@@ -118,8 +118,8 @@ function postdetail(req,res){
     var id = req.params.postid; 
 
 
-    Post.findById(id, function(err, posttt){
-        Comment.find({_post: posttt.id}, function(err, comments){
+    Post.findById(id, function(err, post){
+        Comment.find({_post: post.id}, function(err, comments){
             Account.find(function(err, accounts){
 
                 for (var i = 0; i < comments.length; i++){
@@ -132,7 +132,7 @@ function postdetail(req,res){
                 res.render("_master",{
                     pageTitle: "Home Detail",
                     pageBody: "postDetail",
-                    post: posttt ,
+                    post: post ,
                     comments : comments
                 });
             
