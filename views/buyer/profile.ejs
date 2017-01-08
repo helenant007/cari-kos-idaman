@@ -41,8 +41,8 @@ if(profile.freetrial){
 <h3>Your Comments</h3>
 <div class=" col-sm-12 middle-side">
   <% for(var i = 0; i< comments.length ; i++){ var comment = comments[i]; %>
-         <p><span class="bath1">Post Title:</span>
-	     <br> <b><h4><%= comment.postTitle %></h4></b><br></p>	
+         <p><span class="bath1">Post Title:</span></p>
+	     <b><h4><a href="/postdetail/<%= comment._post%>"><%= comment.postTitle %></a></h4></b>	
          <p><span class="bath1">Comment Subject:</span>
 		 <br><%= comment.subject %><br></p>	
          <p><span class="bath1">Comment Body:</span>
