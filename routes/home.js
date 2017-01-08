@@ -133,7 +133,7 @@ function postdetail(req,res){
 
                 res.render("_master",{
                     pageTitle: "Home Detail",
-                    pageBody: "postDetail", 
+                    pageBody: "postdetail", 
                     post: post ,
                     comments : comments
                 });
