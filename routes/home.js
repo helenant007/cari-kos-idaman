@@ -124,9 +124,8 @@ function postdetail(req,res){
 
                 for (var i = 0; i < comments.length; i++){
                     var comment = comments[i];
-                    var account = accounts.find(function(acc){
-                        return acc._id.toString() == comment._account;
-                    })
+                    var account = accounts.find(acc => acc._id.toString() == comment._account);
+
                     comment.fullname = account.fullname;
                 }
 
