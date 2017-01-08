@@ -23,10 +23,15 @@ function profile(req,res){
 if(role !== "seller"){
     Account.findById(id, function(err, acc){
         Comment.find({_account : acc.id}, function(err, comments){
-            Post.find({_id: comments._post},function (err,postt){
+            Post.find(function (err,postt){
                 
-                for(var i = 0; i < postt.length; i++){
-                    comments.postTitle = postt.subject;
+                for(var i = 0; i < comments.length; i++){
+                    
+                    var p = postt.find(function(post_it){
+                        return post_it._id.toString() == comments[i]._post.toString(); 
+                    })
+                    comments[i].postTitle = p.nama;
+                                        
                 }
 
                 res.render("_master",{
@@ -42,11 +47,11 @@ if(role !== "seller"){
     });
 }else{
 
-                res.render("_master",{
-                    pageTitle: "Profile",
-                    pageBody: role+"/profile",
-                    profile: req.user,
-                });
+    res.render("_master",{
+        pageTitle: "Profile",
+        pageBody: role+"/profile",
+        profile: req.user,
+    });
 }        
 }
 
