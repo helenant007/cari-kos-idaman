@@ -122,17 +122,18 @@ function postdetail(req,res){
         Comment.find({_post: post.id}, function(err, comments){
             Account.find(function(err, accounts){
 
-                for (var i = 0; i < comments.length; i++){
-                    var comment = comments[i];
-                    var account = accounts.find(function(acc){
-                        return acc._id.toString() == comment._account;
-                    })
-                    comment.fullname = account.fullname;
+                for (var i = 0; i < comments.length; i++){ var comment = comments[i];
+                     for (var j =0; j < accounts.length; j++){ var account = accounts[j];
+                         if(account._id.toString() == comment._account){
+                             comment.fullname = account.fullname; //wkkw repot gak sih
+                             break;
+                         }
+                     }
                 }
 
                 res.render("_master",{
                     pageTitle: "Home Detail",
-                    pageBody: "postDetail",
+                    pageBody: "postDetail", 
                     post: post ,
                     comments : comments
                 });
