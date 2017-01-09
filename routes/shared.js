@@ -25,15 +25,12 @@ if(role !== "seller"){
     
     Account.findById(id).then(a => {
         dt.account = a
-        console.log(dt)
         return Comment.find({_account:a.id})
     }).then(c => {
         dt.comments = c
-        console.log(dt)
         return Post.find()
     }).then(posts => {
         dt.posts = posts
-        console.log(dt)
         return dt
     }).then(data => {
         for(let comment of data.comments){
