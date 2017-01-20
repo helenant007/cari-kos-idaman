@@ -1,0 +1,6 @@
+database info:
+MongoDB
+https://mlab.com/databases/dbcki
+
+username: helenant
+password: lalal4nd
