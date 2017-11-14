@@ -21,30 +21,32 @@ function profile(req,res){
     var posts;
 
 if(role !== "seller"){
-    Account.findById(id, function(err, acc){
-        Comment.find({_account : acc.id}, function(err, comments){
-            Post.find(function (err,postt){
-                
-                for(var i = 0; i < comments.length; i++){
-                    
-                    var p = postt.find(function(post_it){
-                        return post_it._id.toString() == comments[i]._post.toString(); 
-                    })
-                    comments[i].postTitle = p.nama;
-                                        
-                }
+    let dt = {}
+    
+    Account.findById(id).then(a => {
+        dt.account = a
+        return Comment.find({_account:a.id})
+    }).then(c => {
+        dt.comments = c
+        return Post.find()
+    }).then(posts => {
+        dt.posts = posts
+        return dt
+    }).then(data => {
+        for(let comment of data.comments){
+            let post = data.posts.find(p => p._id.toString() == comment._post.toString())
+            comment.postTitle = post.nama
+        }
 
-                res.render("_master",{
-                    pageTitle: "Profile",
-                    pageBody: role+"/profile",
-                    profile: req.user,
-                    comments : comments
-                });
-
-            });
-         });
-
-    });
+        res.render("_master",{
+            pageTitle: "Profile",
+            pageBody: role+"/profile",
+            profile: req.user,
+            comments : data.comments
+        });
+    }).catch(err => {
+        throw err
+    })
 }else{
 
     res.render("_master",{
